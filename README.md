@@ -1,36 +1,36 @@
 # 💰 Smart Salary Slicer
 
-**Умный калькулятор распределения зарплаты** по правилу 50/30/20 с гибкой настройкой процентов и поддержкой валют.
+**An intelligent salary distribution calculator** based on the 50/30/20 rule with flexible percentage adjustments and multi-currency support.
 
 ![Smart Salary Slicer Preview](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Vite](https://img.shields.io/badge/Vite-5-purple) ![Tailwind](https://img.shields.io/badge/Tailwind-3-cyan)
 
 ---
 
-## 🚀 Быстрый старт
+## 🚀 Quick Start
 
-### Установка
+### Installation
 
 ```bash
-# Клонировать репозиторий
+# Clone the repository
 git clone https://github.com/Vostos007/buildathon.git
 
-# Перейти в директорию
+# Navigate to directory
 cd buildathon
 
-# Установить зависимости
+# Install dependencies
 npm install
 ```
 
-### Запуск
+### Running
 
 ```bash
-# Запустить dev-сервер
+# Start dev server
 npm run dev
 ```
 
-Откройте [http://localhost:3000](http://localhost:3000) в браузере.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Сборка для продакшена
+### Production Build
 
 ```bash
 npm run build
@@ -39,32 +39,32 @@ npm run preview
 
 ---
 
-## ✨ Возможности
+## ✨ Features
 
-- **📊 Визуализация бюджета** — интерактивный donut-чарт с анимациями
-- **💱 Мультивалютность** — переключение между USD ($), EUR (€), GBP (£)
-- **🎚️ Независимые слайдеры** — настройка процентов без автоматического изменения других категорий
-- **🔒 Лимитатор 100%** — сумма процентов не может превысить 100%
-- **🎯 Готовые пресеты** — Student, Balanced, Aggressive Saver, Family
-- **💾 Автосохранение** — все настройки сохраняются в localStorage
-- **🌙 Темная тема** — современный dark-mode интерфейс
-- **📱 Responsive** — адаптивный дизайн для всех устройств
-
----
-
-## 🛠️ Технологии
-
-- **React 18** — UI-библиотека
-- **TypeScript** — типизация
-- **Vite** — сборщик и dev-сервер
-- **Tailwind CSS** — стилизация
-- **Recharts** — визуализация данных
-- **Radix UI** — компоненты (Slider)
-- **Lucide Icons** — иконки
+- **📊 Budget Visualization** — interactive donut chart with animations
+- **💱 Multi-Currency** — switch between USD ($), EUR (€), GBP (£)
+- **🎚️ Independent Sliders** — adjust percentages without automatic changes to other categories
+- **🔒 100% Limiter** — total percentage sum cannot exceed 100%
+- **🎯 Ready-Made Presets** — Student, Balanced, Aggressive Saver, Family
+- **💾 Auto-Save** — all settings persist in localStorage
+- **🌙 Dark Theme** — modern dark-mode interface
+- **📱 Responsive** — adaptive design for all devices
 
 ---
 
-## 📁 Структура проекта
+## 🛠️ Tech Stack
+
+- **React 18** — UI library
+- **TypeScript** — type safety
+- **Vite** — build tool and dev server
+- **Tailwind CSS** — styling
+- **Recharts** — data visualization
+- **Radix UI** — components (Slider)
+- **Lucide Icons** — icons
+
+---
+
+## 📁 Project Structure
 
 ```
 buildathon/
@@ -105,93 +105,93 @@ buildathon/
 
 ---
 
-## 🎨 Основные компоненты
+## 🎨 Core Components
 
 ### IncomeInput
-Поле ввода месячного дохода с селектором валют.
+Monthly income input field with currency selector.
 
 ### PercentageSlider
-Независимые слайдеры для настройки процентного распределения по категориям:
-- **Needs** (Необходимое) — аренда, продукты, коммунальные услуги
-- **Wants** (Желаемое) — развлечения, подписки, хобби
-- **Savings** (Сбережения) — инвестиции, фонд на случай ЧП
+Independent sliders for adjusting percentage distribution across categories:
+- **Needs** — rent, groceries, utilities
+- **Wants** — entertainment, subscriptions, hobbies
+- **Savings** — investments, emergency fund
 
 ### BudgetDonutChart
-Интерактивная круговая диаграмма с легендой и центральным отображением общей суммы.
+Interactive circular chart with legend and central total display.
 
 ### CategoryCard
-Карточки категорий с суммами, процентами и прогресс-баром.
+Category cards with amounts, percentages, and progress bars.
 
 ### DailySafeToSpend
-Расчет безопасной дневной траты (Wants / 30 дней).
+Calculates safe daily spending (Wants / 30 days).
 
 ---
 
-## 🔧 Управление состоянием
+## 🔧 State Management
 
-Приложение использует **React Hooks** с `useReducer` для управления состоянием:
+The app uses **React Hooks** with `useReducer` for state management:
 
-- `useBudget` — основной хук для работы с состоянием
-- `useBudgetCalculations` — вычисление производных значений (суммы, дневная трата, данные для графика)
-- `budgetReducer` — редьюсер для обработки экшенов
-- Персистентность через `localStorage`
-
----
-
-## 💡 Особенности реализации
-
-### Независимые слайдеры
-В отличие от классических калькуляторов 50/30/20, где изменение одного слайдера автоматически корректирует другие, здесь:
-- Каждый слайдер двигается **независимо**
-- Движение останавливается, когда сумма достигает 100%
-- Остаток показывается внизу: **"Available to distribute: X%"**
-
-### Точность 100%
-Устранен баг с зависанием на 99.99% — теперь сумма корректно достигает ровно 100%.
-
-### Форматирование валюты
-Целые числа отображаются без копеек (`.00`), дробные — с двумя знаками после запятой.
+- `useBudget` — main hook for state management
+- `useBudgetCalculations` — computing derived values (amounts, daily spending, chart data)
+- `budgetReducer` — reducer for handling actions
+- Persistence via `localStorage`
 
 ---
 
-## 📝 Доступные команды
+## 💡 Implementation Highlights
+
+### Independent Sliders
+Unlike classic 50/30/20 calculators where changing one slider automatically adjusts others, here:
+- Each slider moves **independently**
+- Movement stops when sum reaches 100%
+- Remainder shown at bottom: **"Available to distribute: X%"**
+
+### 100% Precision
+Fixed bug with getting stuck at 99.99% — now sum correctly reaches exactly 100%.
+
+### Currency Formatting
+Whole numbers display without cents (`.00`), fractional amounts show two decimal places.
+
+---
+
+## 📝 Available Commands
 
 ```bash
-npm run dev       # Запуск dev-сервера
-npm run build     # Сборка для продакшена
-npm run preview   # Предпросмотр prod-сборки
-npm run lint      # Проверка ESLint
+npm run dev       # Start dev server
+npm run build     # Build for production
+npm run preview   # Preview production build
+npm run lint      # Run ESLint check
 ```
 
 ---
 
-## 🐛 Известные ограничения
+## 🐛 Known Limitations
 
-- Максимальный доход: **999,999,999**
-- Минимальный процент категории: **0%**
-- Максимальная сумма процентов: **100%** (жесткий лимит)
+- Maximum income: **999,999,999**
+- Minimum category percentage: **0%**
+- Maximum total percentage: **100%** (hard limit)
 
 ---
 
-## 📄 Лицензия
+## 📄 License
 
 MIT
 
 ---
 
-## 👤 Автор
+## 👤 Author
 
 **Vostos007**
 
 - GitHub: [@Vostos007](https://github.com/Vostos007)
-- Репозиторий: [buildathon](https://github.com/Vostos007/buildathon)
+- Repository: [buildathon](https://github.com/Vostos007/buildathon)
 
 ---
 
-## 🙏 Благодарности
+## 🙏 Acknowledgments
 
-Проект создан в рамках **Buildathon 2026** с использованием современного стека технологий.
+Project created as part of **Buildathon 2026** using modern technology stack.
 
 ---
 
-**💡 Совет:** После первого запуска попробуйте разные пресеты (Student, Balanced и т.д.), чтобы увидеть, как меняется распределение бюджета!
+**💡 Tip:** After first launch, try different presets (Student, Balanced, etc.) to see how budget distribution changes!
